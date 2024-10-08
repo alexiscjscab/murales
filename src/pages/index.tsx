@@ -21,10 +21,10 @@ const HomeContainer = styled.div<HomeContainerProps>`
 // Estilo para el título principal
 const Title = styled.h1`
   font-family: 'pirate', sans-serif;
-  font-size: 40px;
+  font-size: 24px;
   color: #3090ef;
   letter-spacing: 2px;
-  margin-bottom: 20px;
+  margin-top: 1rem;
   position: relative; /* Para que el z-index funcione */
   z-index: 1; /* Asegura que el título esté por encima de la imagen */
 `;
