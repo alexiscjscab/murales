@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import potro from '../assets/images/potro.jpg'; // Agrega más importaciones de imágenes según sea necesario
 
 // Estilos para el contenedor de Swiper
@@ -114,11 +114,11 @@ const images = [
 ];
 
 export const Sliders = () => {
-  const [modalImage, setModalImage] = useState<string | null>(null);
+  const [modalImage, setModalImage] = useState<StaticImageData | null>(null);
   const [description, setDescription] = useState<string | null>(null);
 
   // Función para abrir el modal con la imagen seleccionada y descripción
-  const handleImageClick = (imageSrc: string, imageDesc: string) => {
+  const handleImageClick = (imageSrc: StaticImageData, imageDesc: string) => {
     setModalImage(imageSrc);
     setDescription(imageDesc);
   };
