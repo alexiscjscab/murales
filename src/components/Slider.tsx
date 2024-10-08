@@ -118,7 +118,7 @@ export const Sliders = () => {
   const [description, setDescription] = useState<string | null>(null);
 
   // Función para abrir el modal con la imagen seleccionada y descripción
-  const handleImageClick = (imageSrc: any, imageDesc: string) => {
+  const handleImageClick = (imageSrc: string, imageDesc: string) => {
     setModalImage(imageSrc);
     setDescription(imageDesc);
   };
@@ -137,9 +137,7 @@ export const Sliders = () => {
   };
 
   return (
-    <SliderWrapper style={{
-      padding: '0.5rem'
-    }}>
+    <SliderWrapper>
       <Swiper
         spaceBetween={10}
         slidesPerView={1} // Muestra una sola imagen en móviles
