@@ -87,27 +87,20 @@ const ImageWrapper = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h2`
-  color: #000;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-family: 'Pirate', sans-serif;
-`;
-
 // Array de imágenes
 const images = [
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
-  { src: potro, desc: 'Este es un potro hermoso' },
+  { src: potro, desc: 'Descripción de otra imagen' },
+  { src: potro, desc: 'Descripción de la tercera imagen' },
+  { src: potro, desc: 'Descripción de otra imagen' },
+  { src: potro, desc: 'Descripción de la tercera imagen' },
+  { src: potro, desc: 'Descripción de otra imagen' },
+  { src: potro, desc: 'Descripción de la tercera imagen' },
+  { src: potro, desc: 'Descripción de otra imagen' },
+  { src: potro, desc: 'Descripción de la tercera imagen' },
+  { src: potro, desc: 'Descripción de otra imagen' },
+  { src: potro, desc: 'Descripción de la tercera imagen' },
+  { src: potro, desc: 'Descripción de otra imagen' },
+  { src: potro, desc: 'Descripción de la tercera imagen' },
   { src: potro, desc: 'Descripción de otra imagen' },
   { src: potro, desc: 'Descripción de la tercera imagen' },
   // Agrega más objetos de imagen según sea necesario
