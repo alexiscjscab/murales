@@ -1,0 +1,36 @@
+/* src/assets/styles/reset.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif; /* Cambia esto si tienes una fuente personalizada */
+  line-height: 1.5;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none; /* Elimina subrayados en enlaces */
+  color: inherit; /* Hereda el color del elemento padre */
+}
+
+img {
+  max-width: 100%; /* Asegura que las imágenes no excedan el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+button {
+  cursor: pointer; /* Cambia el cursor al pasar sobre botones */
+}
+
+input, textarea {
+  font-family: inherit; /* Mantiene la fuente de los elementos de entrada */
+  font-size: inherit; /* Mantiene el tamaño de fuente de los elementos de entrada */
+}
