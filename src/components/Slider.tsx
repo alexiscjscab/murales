@@ -6,12 +6,25 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import styled from 'styled-components';
 import Image, { StaticImageData } from 'next/image';
-import potro from '../assets/images/potro.jpg'; // Agrega más importaciones de imágenes según sea necesario
+import potro from '../assets/images/potro.jpg';
+import puente from '../assets/images/puente.jpg';
+import maradona from '../assets/images/maradona.jpg';
+import rosa from '../assets/images/rosa.jpg';
+import esquina from '../assets/images/esquina.jpg';
+
+// Array de imágenes
+const images = [
+  { src: potro, desc: 'Mural del Potro en "El Gigante"' },
+  { src: maradona, desc: 'Mural del Diego en "El Gigante"' },
+  { src: puente, desc: 'Puente' },
+  { src: rosa, desc: 'Casa doña Rosa' },
+  { src: esquina, desc: 'En alguna esquina del barrio más popular' },
+];
 
 // Estilos para el contenedor de Swiper
 const SliderWrapper = styled.div`
   width: 100%;
-  padding: 1rem; // Reducción del padding para móviles
+  padding: 1rem;
   position: relative;
   border: 2px solid #000;
 `;
@@ -45,10 +58,10 @@ const ModalOverlay = styled.div<{ isOpen: boolean }>`
 
 const ModalContent = styled.div`
   position: relative;
-  max-width: 90%; // Aumentar el ancho del modal en dispositivos móviles
-  max-height: 90%; // Aumentar la altura del modal en dispositivos móviles
+  max-width: 90%;
+  max-height: 90%;
   background-color: #fff;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -57,8 +70,9 @@ const ModalContent = styled.div`
 
 const ImageInModal = styled(Image)`
   max-width: 100%;
-  max-height: 70vh; /* Evita que la imagen sobrepase la altura del modal */
-  object-fit: contain; /* Asegura que la imagen se ajuste bien dentro del modal */
+  max-height: 70vh;
+  object-fit: contain;
+  padding: 0.5rem;
 `;
 
 const CloseButton = styled.button`
@@ -75,36 +89,30 @@ const CloseButton = styled.button`
 const Description = styled.p`
   margin-top: 1rem;
   font-size: 1.1rem;
-  color: #333;
+  color: #fff;
   text-align: center;
+  background: rgba(0, 0, 0, 1);
+  width: 100%;
+  padding: 0.2rem;
+
+  &:hover {
+    color: #3090ef;
+  }
 `;
 
 const ImageWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 0;
+  padding-bottom: 68.31%; /* Mantiene la proporción 732x500 */
+  position: relative;
 `;
 
-// Array de imágenes
-const images = [
-  { src: potro, desc: 'Descripción de otra imagen' },
-  { src: potro, desc: 'Descripción de la tercera imagen' },
-  { src: potro, desc: 'Descripción de otra imagen' },
-  { src: potro, desc: 'Descripción de la tercera imagen' },
-  { src: potro, desc: 'Descripción de otra imagen' },
-  { src: potro, desc: 'Descripción de la tercera imagen' },
-  { src: potro, desc: 'Descripción de otra imagen' },
-  { src: potro, desc: 'Descripción de la tercera imagen' },
-  { src: potro, desc: 'Descripción de otra imagen' },
-  { src: potro, desc: 'Descripción de la tercera imagen' },
-  { src: potro, desc: 'Descripción de otra imagen' },
-  { src: potro, desc: 'Descripción de la tercera imagen' },
-  { src: potro, desc: 'Descripción de otra imagen' },
-  { src: potro, desc: 'Descripción de la tercera imagen' },
-  // Agrega más objetos de imagen según sea necesario
-];
+const ResponsiveImage = styled(Image)`
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
 
 export const Sliders = () => {
   const [modalImage, setModalImage] = useState<StaticImageData | null>(null);
@@ -150,11 +158,11 @@ export const Sliders = () => {
         breakpoints={{
           640: {
             slidesPerView: 2, // Muestra 2 imágenes en pantallas pequeñas
-            navigation: false, // Oculta las flechas en pantallas pequeñas
+            navigation: false,
           },
           768: {
             slidesPerView: 3, // Muestra 3 imágenes en pantallas medianas
-            navigation: true, // Muestra las flechas en pantallas medianas y grandes
+            navigation: true,
           },
           1024: {
             slidesPerView: 4, // Muestra 4 imágenes en pantallas grandes
@@ -165,12 +173,10 @@ export const Sliders = () => {
           <SwiperSlide key={index}>
             <Slide onClick={() => handleImageClick(image.src, image.desc)}>
               <ImageWrapper>
-                <Image
+                <ResponsiveImage
                   src={image.src}
                   alt={`Imagen ${index + 1}`}
-                  height={300}
-                  width={400}
-                  layout="responsive" // Hace que la imagen sea responsiva
+                  layout='fill'
                 />
               </ImageWrapper>
             </Slide>
@@ -187,10 +193,11 @@ export const Sliders = () => {
               <ImageInModal
                 src={modalImage}
                 alt='Imagen ampliada'
-                height={600}
-                width={800}
+                height={732}
+                width={500}
               />
-              <Description>{description}</Description> {/* Descripción debajo de la imagen */}
+              <Description>{description}</Description>{' '}
+              {/* Descripción debajo de la imagen */}
             </>
           )}
         </ModalContent>

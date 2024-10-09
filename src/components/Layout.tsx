@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import logo from '../assets/images/logo.png';
+import Image from 'next/image';
+
 
 const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fbfbff;
+  background: #000;
   padding: 0.75rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -66,9 +69,7 @@ const NavItem = styled.li`
 `;
 
 const Logo = styled.div`
-  font-family: 'Pirate', sans-serif;
-  color: #000;
-  letter-spacing: 2px;
+  
 `;
 
 const Hamburger = styled.div`
@@ -124,7 +125,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar>
-        <Logo>MURALES CAB</Logo>
+        <Logo>
+          <Image
+            src={logo}
+            alt={'Murales CAB'}
+            height={40}
+            width={30}
+          />
+        </Logo>
         <Hamburger onClick={toggleMenu}>
           <div />
           <div />
