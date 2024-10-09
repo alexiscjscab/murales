@@ -49,7 +49,7 @@ const ContactButton = styled.a`
   text-decoration: none;
 
   &:hover {
-    background-color: #2c8effd1;
+    background-color: rgba(0,0,0,0.4);
     transform: translateY(-5px);
   }
 
@@ -68,10 +68,16 @@ const MuralContact: React.FC = () => {
   return (
     <Container>
       <Title>¿Quieres un mural?</Title>
-      <Description>¡Contáctanos para hacer realidad tu idea artística!</Description>
-      <ContactButton onClick={
-        window.alert('En Proceso')
-      }>Contáctanos</ContactButton>
+      <Description>
+        ¡Contáctanos para hacer realidad tu idea artística!
+      </Description>
+      <ContactButton
+        onClick={() => {
+          window.alert('En Proceso');
+        }}
+      >
+        Contáctanos
+      </ContactButton>
     </Container>
   );
 };
