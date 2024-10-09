@@ -1,4 +1,3 @@
-// components/Slider.tsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -63,6 +62,7 @@ const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra para un efecto elevado */
 `;
 
 const CloseButton = styled.button`
@@ -93,10 +93,10 @@ const ImageWrapper = styled.div`
 `;
 
 const ResponsiveImage = styled.img`
-  object-fit: cover;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  object-fit: contain; /* Asegura que la imagen no se recorte */
+  max-width: 100%;
+  max-height: 70vh; /* Asegura que la imagen no exceda la altura del viewport */
+  border-radius: 8px; /* Bordes redondeados para un aspecto más suave */
 `;
 
 // Componente Modal
@@ -106,7 +106,7 @@ const Modal: React.FC<{ isOpen: boolean; onClose: () => void; imageSrc: string |
       <CloseButton onClick={onClose}>×</CloseButton>
       {imageSrc && (
         <>
-          <ResponsiveImage src={imageSrc} alt='Imagen ampliada' style={{ maxWidth: '100%', maxHeight: '70vh', objectFit: 'contain', padding: '0.5rem' }} />
+          <ResponsiveImage src={imageSrc} alt='Imagen ampliada' />
           <Description>{imageDesc}</Description>
         </>
       )}

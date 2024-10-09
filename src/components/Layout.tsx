@@ -100,6 +100,7 @@ const Footer = styled.footer`
   flex-direction: row; /* Coloca los elementos uno debajo del otro */
   align-items: center; /* Centra horizontalmente */
   justify-content: center;
+  flex-wrap: wrap;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
@@ -115,6 +116,7 @@ const FooterText = styled.span`
   color: #3090ef; /* Color del texto */
   margin: 5px; /* Espacio entre el texto y el icono de Instagram */
   padding: 0.3rem;
+  letter-spacing: 3px;
 `;
 
 const InstagramIcon = styled.a`
@@ -178,7 +180,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </Navbar>
       <Main>{children}</Main>
       <Footer>
-        <FooterText>Murales CAB</FooterText>
+        <FooterText>MURALES CAB</FooterText>
         <InstagramIcon
           href='https://www.instagram.com/muralescab/'
           target='_blank'
