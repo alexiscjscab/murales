@@ -1,4 +1,5 @@
-import { Sliders } from '@/components/Slider';
+// pages/index.tsx
+import { Slider } from '@/components/Slider';
 import React from 'react';
 import styled from 'styled-components';
 import fondo from '../assets/images/fondo-home.jpg';
@@ -14,20 +15,8 @@ const Title = styled.h1`
   margin: 0.5rem;
   position: relative;
   z-index: 1;
-
-  /* Sombra de texto */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajusta los valores según sea necesario */
-
-  /* Efecto hover */
-  transition: transform 0.3s ease, color 0.3s ease; /* Transiciones suaves */
-  
-  &:hover {
-    color: #fff; /* Cambia el color al dorado al hacer hover */
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Aumenta la sombra de texto */
-  }
 `;
-
-
 
 // Estilo del contenedor principal con fondo
 const HomeContainerStyled = styled.div<{ $backgroundImage: string }>`
@@ -41,7 +30,7 @@ const Home = () => {
   return (
     <HomeContainerStyled $backgroundImage={fondo.src}>
       <Title>MURALES CAB</Title>
-      <Sliders />
+      <Slider />
     </HomeContainerStyled>
   );
 };
