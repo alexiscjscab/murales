@@ -3,13 +3,13 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import logo from '../assets/images/logo.png';
 import Image from 'next/image';
-
+import { FaInstagram } from 'react-icons/fa'; // Importa el ícono de Instagram
 
 const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #000;
+  background-color: rgba(0, 0, 0, 1);
   padding: 0.75rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -68,9 +68,7 @@ const NavItem = styled.li`
   }
 `;
 
-const Logo = styled.div`
-  
-`;
+const Logo = styled.div``;
 
 const Hamburger = styled.div`
   display: none;
@@ -94,6 +92,38 @@ const Hamburger = styled.div`
 
 const Main = styled.main`
   margin-top: 3rem; /* Ajusta este valor según la altura del navbar */
+  margin-bottom: 80px; /* Añade margen inferior para el footer */
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  flex-direction: row; /* Coloca los elementos uno debajo del otro */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-family: 'Pirate', sans-serif;
+  position: fixed; /* Cambia a fixed */
+  bottom: 0; /* Coloca el footer en la parte inferior */
+  left: 0;
+  right: 0; /* Asegúrate de que ocupe todo el ancho */
+  z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+`;
+
+const FooterText = styled.span`
+  color: #3090ef; /* Color del texto */
+  margin: 5px; /* Espacio entre el texto y el icono de Instagram */
+  padding: 0.3rem;
+`;
+
+const InstagramIcon = styled.a`
+  color: #fff;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #3090ef; /* Cambia a un color al hacer hover */
+  }
 `;
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -126,12 +156,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <Navbar>
         <Logo>
-          <Image
-            src={logo}
-            alt={'Murales CAB'}
-            height={50}
-            width={40}
-          />
+          <Image src={logo} alt={'Murales CAB'} height={50} width={40} />
         </Logo>
         <Hamburger onClick={toggleMenu}>
           <div />
@@ -140,14 +165,36 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </Hamburger>
         <NavItems isOpen={isOpen} ref={navRef}>
           <NavItem>
-            <Link href="/" onClick={closeMenu}>Inicio</Link>
+            <Link href='/' onClick={closeMenu}>
+              Inicio
+            </Link>
           </NavItem>
           <NavItem>
-            <Link href="/contact" onClick={closeMenu}>Contacto</Link>
+            <Link href='/contact' onClick={closeMenu}>
+              Contacto
+            </Link>
           </NavItem>
         </NavItems>
       </Navbar>
       <Main>{children}</Main>
+      <Footer>
+        <FooterText>Murales CAB</FooterText>
+        <InstagramIcon
+          href='https://www.instagram.com/muralescab/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FaInstagram size={24} />
+        </InstagramIcon>
+        <FooterText>Los Piratas Celestes de Alberdi</FooterText>
+        <InstagramIcon
+          href='https://www.instagram.com/los.piratascelestesdealberdi/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FaInstagram size={24} />
+        </InstagramIcon>
+      </Footer>
     </div>
   );
 };
