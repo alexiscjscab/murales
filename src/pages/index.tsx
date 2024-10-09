@@ -2,7 +2,6 @@ import { Sliders } from '@/components/Slider';
 import React from 'react';
 import styled from 'styled-components';
 import fondo from '../assets/images/fondo-home.jpg';
-import { HomeContainer } from '@/components/HomeContainer';
 
 // Estilo del título
 const Title = styled.h1`
