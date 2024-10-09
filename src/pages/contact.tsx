@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: center;
   height: 100vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  background: linear-gradient(135deg, #388ae8, #008cff);
   color: #fff;
   text-align: center;
 `;
@@ -40,7 +40,7 @@ const ContactButton = styled.a`
   display: inline-block;
   padding: 0.8rem 2rem;
   font-size: 1.2rem;
-  background-color: #f26a6a;
+  background-color: #000000;
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -49,7 +49,7 @@ const ContactButton = styled.a`
   text-decoration: none;
 
   &:hover {
-    background-color: #ff4d4d;
+    background-color: #2c8effd1;
     transform: translateY(-5px);
   }
 

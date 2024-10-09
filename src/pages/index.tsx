@@ -24,7 +24,7 @@ const HomeContainerStyled = styled.div<{ $backgroundImage: string }>`
   height: 100vh;
   
   /* Aplicando filtros para un efecto más estilizado */
-  filter: grayscale(80%) brightness(0.7) contrast(1.2) blur(2px);
+  filter: grayscale(20%) brightness(0.7) contrast(1.2) blur(2px);
   
   /* Añadiendo un overlay suave para resaltar el contenido */
   position: relative;
