@@ -22,7 +22,31 @@ const HomeContainerStyled = styled.div<{ $backgroundImage: string }>`
   background-size: cover;
   background-position: center;
   height: 100vh;
+  
+  /* Aplicando filtros para un efecto más estilizado */
+  filter: grayscale(80%) brightness(0.7) contrast(1.2) blur(2px);
+  
+  /* Añadiendo un overlay suave para resaltar el contenido */
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay oscuro semi-transparente */
+    z-index: 1;
+  }
+
+  /* Asegura que el contenido esté por encima del overlay */
+  > * {
+    position: relative;
+    z-index: 2;
+  }
 `;
+
 
 const Home = () => {
   return (
