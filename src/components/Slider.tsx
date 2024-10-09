@@ -100,6 +100,7 @@ const ResponsiveImage = styled.img`
 `;
 
 // Componente Modal
+// Componente Modal
 const Modal: React.FC<{ isOpen: boolean; onClose: () => void; imageSrc: string | null; imageDesc: string | null }> = React.memo(({ isOpen, onClose, imageSrc, imageDesc }) => (
   <ModalOverlay isOpen={isOpen} onClick={onClose}>
     <ModalContent onClick={(e) => e.stopPropagation()}>
@@ -113,6 +114,9 @@ const Modal: React.FC<{ isOpen: boolean; onClose: () => void; imageSrc: string |
     </ModalContent>
   </ModalOverlay>
 ));
+
+// Agregar el nombre de visualización
+Modal.displayName = 'Modal';
 
 // Componente Principal
 export const Slider: React.FC = () => {
