@@ -69,7 +69,9 @@ const MuralContact: React.FC = () => {
     <Container>
       <Title>¿Quieres un mural?</Title>
       <Description>¡Contáctanos para hacer realidad tu idea artística!</Description>
-      <ContactButton href="mailto:contacto@murales.com">Contáctanos</ContactButton>
+      <ContactButton onClick={
+        window.alert('En Proceso')
+      }>Contáctanos</ContactButton>
     </Container>
   );
 };
