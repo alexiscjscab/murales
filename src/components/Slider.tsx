@@ -12,6 +12,8 @@ import maradona from '../assets/images/maradona.jpg';
 import rosa from '../assets/images/rosa.jpg';
 import esquina from '../assets/images/esquina.jpg';
 
+// las imagenes son 732 ancho por 500 de Alto
+
 // Array de imágenes
 const images = [
   { src: potro, desc: 'Mural del Potro en "El Gigante"' },
@@ -23,10 +25,13 @@ const images = [
 
 // Estilos para el contenedor de Swiper
 const SliderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   position: relative;
-  border: 2px solid #000;
+  border: 2px solid #fff;
 `;
 
 // Estilos para cada slide
@@ -39,6 +44,26 @@ const Slide = styled.div`
 
   &:hover {
     transform: scale(1.1);
+  }
+`;
+
+// Estilos para los puntos de paginación personalizados
+const CustomPagination = styled.div`
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    opacity: 1;
+    transition: background-color 0.3s, transform 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: black;
+    transform: scale(1.2);
+  }
+
+  .swiper-pagination-bullet:hover {
+    background-color: white;
   }
 `;
 
@@ -139,50 +164,52 @@ export const Sliders = () => {
 
   return (
     <SliderWrapper>
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={1} // Muestra una sola imagen en móviles
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={{
-          prevEl: '.swiper-button-prev',
-          nextEl: '.swiper-button-next',
-        }}
-        modules={[Autoplay, Pagination, Navigation]}
-        breakpoints={{
-          640: {
-            slidesPerView: 2, // Muestra 2 imágenes en pantallas pequeñas
-            navigation: false,
-          },
-          768: {
-            slidesPerView: 3, // Muestra 3 imágenes en pantallas medianas
-            navigation: true,
-          },
-          1024: {
-            slidesPerView: 4, // Muestra 4 imágenes en pantallas grandes
-          },
-        }}
-      >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <Slide onClick={() => handleImageClick(image.src, image.desc)}>
-              <ImageWrapper>
-                <ResponsiveImage
-                  src={image.src}
-                  alt={`Imagen ${index + 1}`}
-                  layout='fill'
-                />
-              </ImageWrapper>
-            </Slide>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <CustomPagination>
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={1} // Muestra una sola imagen en móviles
+          loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={{
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next',
+          }}
+          modules={[Autoplay, Pagination, Navigation]}
+          breakpoints={{
+            640: {
+              slidesPerView: 2, // Muestra 2 imágenes en pantallas pequeñas
+              navigation: false,
+            },
+            768: {
+              slidesPerView: 3, // Muestra 3 imágenes en pantallas medianas
+              navigation: true,
+            },
+            1024: {
+              slidesPerView: 4, // Muestra 4 imágenes en pantallas grandes
+            },
+          }}
+        >
+          {images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <Slide onClick={() => handleImageClick(image.src, image.desc)}>
+                <ImageWrapper>
+                  <ResponsiveImage
+                    src={image.src}
+                    alt={`Imagen ${index + 1}`}
+                    layout="fill"
+                  />
+                </ImageWrapper>
+              </Slide>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </CustomPagination>
 
       {/* Modal para la imagen */}
       <ModalOverlay isOpen={modalImage !== null} onClick={handleOverlayClick}>
@@ -192,12 +219,11 @@ export const Sliders = () => {
             <>
               <ImageInModal
                 src={modalImage}
-                alt='Imagen ampliada'
+                alt="Imagen ampliada"
                 height={732}
                 width={500}
               />
-              <Description>{description}</Description>{' '}
-              {/* Descripción debajo de la imagen */}
+              <Description>{description}</Description>
             </>
           )}
         </ModalContent>

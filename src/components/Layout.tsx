@@ -129,8 +129,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <Image
             src={logo}
             alt={'Murales CAB'}
-            height={40}
-            width={30}
+            height={50}
+            width={40}
           />
         </Logo>
         <Hamburger onClick={toggleMenu}>
